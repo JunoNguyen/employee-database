@@ -130,23 +130,23 @@ const addEmployee = function() {
 const employeeRoles = function(role) {
   inquirer
     .prompt([
-    {
-      type: "input",
-      name: "firstName",
-      message: "What is the employee's name?"
-    },
-    {
-      type: "input",
-      name: "lastName",
-      message: "What is the employee's last name?"
-    },
-    {
-      type: "list",
-      name: "roleId",
-      message: "What is the employee's role?",
-      choices: role
-    }
-  ]).then((newEmployee)=>{
+        {
+          type: "input",
+          name: "firstName",
+          message: "What is the employee's name?"
+        },
+        {
+          type: "input",
+          name: "lastName",
+          message: "What is the employee's last name?"
+        },
+        {
+          type: "list",
+          name: "roleId",
+          message: "What is the employee's role?",
+          choices: role
+        }
+    ]).then((newEmployee)=>{
       let employee = `INSERT INTO employee SET ?`
       db.query(employee,{
         first_name: newEmployee.firstName,
@@ -174,14 +174,14 @@ const updateEmployee = function(){
 };
 
 function updateRole(employee){
-  let query = 
+  let role = 
   `SELECT 
     roles.id, 
     roles.title, 
     roles.salary 
   FROM roles`
 
-  db.query(query,(err, res)=>{
+  db.query(role,(err, res)=>{
     if(err)throw err;
     let roleChoices = res.map(({ id, title, salary }) => ({
       value: id, 
