@@ -57,6 +57,12 @@ const database = function() {
             case "Add Role":
                 addRole();
                 break;
+            case "Add Department":
+                addDepartment();
+                break;
+            case "Quit":
+                console.log("Goodbye!");
+                break;
         }
     })
 };
@@ -256,6 +262,44 @@ const newRole = function(department) {
         title: newRole.roleName,
         salary: newRole.roleSalary,
         department: newRole.departmentId
+      },(err)=>{
+        if(err) throw err;
+        database();
+    });
+  });
+};
+
+const addDepartment = function() {
+    let department = 
+    `SELECT 
+        department.id, 
+        department.title
+    FROM department`
+
+ db.query(department,(err, res)=>{
+    if(err)throw err;
+    const department = res.map(({ id, title }) => ({
+      value: id, 
+      title: `${title}`, 
+    }));
+
+    console.table(res);
+    newDepartment(department);
+  });
+}
+  
+const newDepartment = function(department) {
+  inquirer
+    .prompt([
+    {
+      type: "input",
+      name: "departmentTitle",
+      message: "What is the department name?"
+    }
+  ]).then((newDepartment)=>{
+      let department = `INSERT INTO department SET ?`
+      db.query(department,{
+        title: newDepartment.departmentTitle,
       },(err)=>{
         if(err) throw err;
         database();
