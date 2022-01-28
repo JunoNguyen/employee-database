@@ -26,6 +26,8 @@ Table of Contents
 ## Questions
 [Github Profile](https://github.com/JunoNguyen)
 
+[Github Repo](https://github.com/JunoNguyen/employee-database)
+
     JunoNguyen
 [Email Me](junonguyen27@gmail.com) if you want to get in contact about this project.
 ## Contributions
