@@ -18,6 +18,7 @@ Table of Contents
     Having an employee database to keep track of employees working for a company helps improve efficiency and makes roles, departments, and employees easy to keep track of. 
 ## Description
     The employee database is ran specifically in the terminal and will track your employee database using sql databases. You have many features as well as adding departments, roles, and employees. 
+[Video Demo](https://www.youtube.com/watch?v=tGz2X-GzraI)
 ## Usage
     Fork the repository and run "npm i". This should install inquirer, mysql2, and console.table. From there, go into the db folder and create the database by logging into mysql and running "source schema.sql" followed by "source seeds.sql".
 ## Built With
